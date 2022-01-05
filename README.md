@@ -1,4 +1,6 @@
-# Navigate to locations
+# glasses.nvim
+
+When a telescope is overkill.
 
 ## Features
 
