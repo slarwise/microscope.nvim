@@ -1,29 +1,8 @@
+-- These functions should be mappable by the user
+-- E.g. set_state_and_select("edit_cmd", "split")
+local state = require "quick_select.state"
+
 local M = {}
-
-M.edit = function(item)
-    if not item then
-        return
-    end
-    if item.lnum and item.col then
-        pcall(vim.cmd, string.format("edit +call\\ cursor(%d,%d) %s", item.lnum, item.col, item.filename))
-    else
-        pcall(vim.cmd, "edit " .. item.filename)
-    end
-end
-
-M.edit_arg = function(item, idx)
-    if not item then
-        return
-    end
-    pcall(vim.cmd(string.format("argument %d", idx)))
-end
-
-M.edit_quickfix = function(item, idx)
-    if not item then
-        return
-    end
-    pcall(vim.cmd(string.format("cc %d", idx)))
-end
 
 M.set_args = function(locations)
     local filenames = vim.tbl_map(function(location)
@@ -33,8 +12,9 @@ M.set_args = function(locations)
     vim.cmd(string.format("argadd %s", table.concat(filenames, " ")))
 end
 
-M.set_quickfix = function(locations)
-    vim.fn.setqflist(locations)
+M.set_state_and_select = function(key, val)
+    state.set(key, val)
+    vim.api.nvim_input [[<CR>]]
 end
 
 return M

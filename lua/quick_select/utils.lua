@@ -1,5 +1,3 @@
-local config = require "quick_select.config"
-
 local M = {}
 
 -- location keys
@@ -9,7 +7,7 @@ local M = {}
 
 M.make_location = function(filename, lnum, col)
     return {
-        filename = vim.fn.fnamemodify(filename, ":~:."),
+        filename = filename,
         lnum = lnum,
         col = col,
     }
