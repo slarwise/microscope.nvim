@@ -4,7 +4,7 @@ When the telescope is overkill :) Send file lists to vim.ui.select and map
 actions to perform on these lists. Only file list creation and actions are
 provided, use the UI you want by letting it override vim.ui.select.
 
-## Features
+## Usage
 
 - Builtin lists
   - Args

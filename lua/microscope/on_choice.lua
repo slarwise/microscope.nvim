@@ -102,36 +102,10 @@ M.from_state = function(item, idx)
         state.reset()
         return
     end
-    local kind = state.get "kind" or "file"
-    local default_action = "edit"
-    local action_map = {
-        edit = M.edit,
-        split = M.split,
-        vsplit = M.vsplit,
-        quickfix = M.send_to_quickfix,
-        args = M.send_to_args,
-    }
-    if kind == "args" then
-        default_action = "edit"
-        action_map = {
-            edit = M.edit_arg,
-            split = M.split_arg,
-            vsplit = M.vsplit_arg,
-            quickfix = M.send_to_quickfix,
-            args = M.send_to_args,
-        }
-    elseif kind == "quickfix" then
-        action_map = {
-            edit = M.edit_qf,
-            split = M.split_qf,
-            vsplit = M.vsplit_qf,
-            quickfix = M.send_to_quickfix,
-            args = M.send_to_args,
-        }
-    end
-    local action = state.get "action" or default_action
-    local on_choice_function = action_map[action]
-    on_choice_function(item, idx)
+    local on_choice_name = state.get("on_choice")
+    local available_on_choice = state.get("available_on_choice")
+    local on_choice = available_on_choice[on_choice_name]
+    on_choice(item, idx)
     state.reset()
 end
 
