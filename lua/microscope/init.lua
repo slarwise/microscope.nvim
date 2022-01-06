@@ -1,4 +1,4 @@
-local config = require "quick_select.config"
+local config = require "microscope.config"
 
 local M = {}
 

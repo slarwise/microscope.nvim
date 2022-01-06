@@ -1,4 +1,4 @@
-local utils = require "quick_select.utils"
+local utils = require "microscope.utils"
 
 local M = {}
 

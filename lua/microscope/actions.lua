@@ -1,6 +1,6 @@
 -- These functions should be mappable by the user
 -- E.g. set_state_and_select("edit_cmd", "split")
-local state = require "quick_select.state"
+local state = require "microscope.state"
 
 local M = {}
 

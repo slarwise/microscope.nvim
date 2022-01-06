@@ -1,4 +1,4 @@
-local state = require "quick_select.state"
+local state = require "microscope.state"
 
 local M = {}
 

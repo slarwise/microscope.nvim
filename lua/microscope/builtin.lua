@@ -1,7 +1,7 @@
-local utils = require "quick_select.utils"
-local locations = require "quick_select.locations"
-local state = require "quick_select.state"
-local on_choice = require "quick_select.on_choice"
+local utils = require "microscope.utils"
+local locations = require "microscope.locations"
+local state = require "microscope.state"
+local on_choice = require "microscope.on_choice"
 
 local M = {}
 
