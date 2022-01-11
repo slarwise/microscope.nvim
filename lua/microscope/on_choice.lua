@@ -81,10 +81,10 @@ M.send_to_args = function(item)
     if not item then
         return
     end
-    local locations = state.get "locations"
-    local filenames = vim.tbl_map(function(location)
-        return location.filename
-    end, locations)
+    local items = state.get "items"
+    local filenames = vim.tbl_map(function(item)
+        return item.filename
+    end, items)
     vim.cmd [[ silent! argdelete * ]]
     vim.cmd(string.format("argadd %s", table.concat(filenames, " ")))
 end
@@ -93,8 +93,8 @@ M.send_to_quickfix = function(item)
     if not item then
         return
     end
-    local locations = state.get "locations"
-    vim.fn.setqflist(locations)
+    local items = state.get "items"
+    vim.fn.setqflist(items)
 end
 
 M.from_state = function(item, idx)
@@ -102,9 +102,9 @@ M.from_state = function(item, idx)
         state.reset()
         return
     end
-    local on_choice_name = state.get("on_choice")
-    local available_on_choice = state.get("available_on_choice")
-    local on_choice = available_on_choice[on_choice_name]
+    local action = state.get("action")
+    local action_map = state.get("action_map")
+    local on_choice = action_map[action]
     on_choice(item, idx)
     state.reset()
 end

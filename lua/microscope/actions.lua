@@ -4,8 +4,8 @@ local state = require "microscope.state"
 
 local M = {}
 
-M.set_state_and_select = function(key, val)
-    state.set(key, val)
+M.set_action_and_select = function(action)
+    state.set("action", action)
     vim.api.nvim_input [[<CR>]]
 end
 

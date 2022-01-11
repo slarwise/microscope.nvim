@@ -1,11 +1,11 @@
 local M = {}
 
--- location keys
+-- item keys
 --  filename (mandatory)
 --  lnum
 --  col
 
-M.make_location = function(filename, lnum, col)
+M.make_item = function(filename, lnum, col)
     return {
         filename = filename,
         lnum = lnum,
@@ -13,11 +13,11 @@ M.make_location = function(filename, lnum, col)
     }
 end
 
-M.format_location = function(item)
+M.format_item = function(item)
     return item.filename
 end
 
-M.format_location_filename_only = function(item)
+M.format_item_filename_only = function(item)
     return vim.fn.fnamemodify(item.filename, ":t")
 end
 
