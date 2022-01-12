@@ -36,7 +36,7 @@ Add these mappings to the UI you are using.
 vim.api.nvim_buf_set_keymap(
     "n",
     "<C-S>",
-    "<cmd>lua require'microscope.actions'.set_state_and_select('action', 'split')<cr>",
+    "<cmd>lua require'microscope.actions'.set_action_and_select('split')<cr>",
     { noremap = true }
 )
 ```
