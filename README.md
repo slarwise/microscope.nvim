@@ -1,8 +1,7 @@
 # microscope.nvim
 
-When the telescope is overkill :) Send file lists to vim.ui.select and map
-actions to perform on these lists. Only file list creation and actions are
-provided, use the UI you want by letting it override vim.ui.select.
+Send lists of file locations to vim.ui.select. Similar to Telescope, but without
+the UI.
 
 ## Usage
 
@@ -42,7 +41,4 @@ vim.api.nvim_buf_set_keymap(
 )
 ```
 
-``action`` can be one of `'split', 'vsplit', 'args', 'quickfix'`.
-
-Use vim.ui.select to go to a location, or set the quickfix/args list to a set of
-locations.
+`action` can be one of `'split', 'vsplit', 'args', 'quickfix'`.
